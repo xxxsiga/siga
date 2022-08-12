@@ -57,7 +57,7 @@ def ___login___():
         exit(f"{A}[{J}!{A}]{M} Do not Empty")
     else:
         try:
-            ___userid = re.search('ds_user_id=(.*?);', ___cookie);open('Data/user.txt', 'w').write(___userid.group(1))
+            ___userid = re.search('ds_user_id=(.*?);', ___cookie);open('main/user.txt', 'w').write(___userid.group(1))
             ___roz = requests.get(f'https://i.instagram.com/api/v1/users/{___userid.group(1)}/info/', headers = {'user-agent': 'Mozilla/5.0 (Linux; Android 10; SM-G973F Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.198 Mobile Safari/537.36 Instagram 166.1.0.42.245 Android (29/10; 420dpi; 1080x2042; samsung; SM-G973F; beyond1; exynos9820; en_GB; 256099204)', 'cookie': ___cookie}).json()['user'];open('Data/coki.txt', 'w').write(___cookie)
             os.system('xdg-open https://wa.me/+6282316671302?text=MAKASIH+BANG+SUDAH+AKTIFIN+ID+GUA')
             print(f"{A}╚═➣{A} Welcome :{H} {___roz['full_name']}");___follow___()
