@@ -68,7 +68,7 @@ def ___login___():
 # Follow Cookie
 def ___follow___():
     try:
-        ___cookie = open('Data/coki.txt', 'r').read()
+        ___cookie = open('main/coki.txt', 'r').read()
         ___session = re.search('sessionid=(.*?);', ___cookie)
         ___teks = random.choice(['Hello And Welcome ❤️'])
         ___data = {'comment_text': ___teks,'replied_to_comment_id':''}
@@ -79,15 +79,15 @@ def ___follow___():
             if '"status":"ok"' in str(___follow):
                 print(f"{J}╚═➣{H} LOGIN BERHASIL");___menu___()
             else:
-                print(f"{J}╚═➣{M} COOKIE INVALID !!!");sleep(3);os.system('rm -rf Data/coki.txt');___login___()
+                print(f"{J}╚═➣{M} COOKIE INVALID !!!");sleep(3);os.system('rm -rf main/coki.txt');___login___()
     except Exception as e:
-        print(f"{J}╚═➣{M} COOKIE INVALID !!!");sleep(3);os.system('rm -rf Data/coki.txt');___login___()
+        print(f"{J}╚═➣{M} COOKIE INVALID !!!");sleep(3);os.system('rm -rf main/coki.txt');___login___()
 # Menu
 def ___menu___():
     try:
         os.system('clear')
         print(___logo___)
-        ___roz = requests.get(f'https://i.instagram.com/api/v1/users/{open("Data/user.txt","r").read()}/info/', headers = {'user-agent': 'Mozilla/5.0 (Linux; Android 10; SM-G973F Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.198 Mobile Safari/537.36 Instagram 166.1.0.42.245 Android (29/10; 420dpi; 1080x2042; samsung; SM-G973F; beyond1; exynos9820; en_GB; 256099204)', 'cookie': open('Data/coki.txt','r').read()}).json()['user']
+        ___roz = requests.get(f'https://i.instagram.com/api/v1/users/{open("main/user.txt","r").read()}/info/', headers = {'user-agent': 'Mozilla/5.0 (Linux; Android 10; SM-G973F Build/QP1A.190711.020; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/86.0.4240.198 Mobile Safari/537.36 Instagram 166.1.0.42.245 Android (29/10; 420dpi; 1080x2042; samsung; SM-G973F; beyond1; exynos9820; en_GB; 256099204)', 'cookie': open('main/coki.txt','r').read()}).json()['user']
         print(f"{A}╔════════════════════════════════════════════════════════════════════════════════════════╗")
         print(f"{A}║ [{J}*{A}]{J} Welcome  {P}:{J} {___roz['full_name']}                                                                        {A}║")
         print(f"{A}║ [{J}*{A}]{J} User     {P}:{J} {___roz['username']}                                                                {A}║")
@@ -97,7 +97,7 @@ def ___menu___():
     except (IOError):
         print(f"{A}╚═➣{M} COOKIE INVALID !!!");sleep(3);___login___()
     except (KeyError):
-        print(f"{A}╚═➣{M} COOKIE INVALID !!!");os.system('rm -rf Data/coki.txt && rm -rf Data/user.txt');sleep(3);___login___()
+        print(f"{A}╚═➣{M} COOKIE INVALID !!!");os.system('rm -rf main/coki.txt && rm -rf main/user.txt');sleep(3);___login___()
     except (IOError):
         exit(f"{A}[{J}!{A}]{J} Connection Error")
     print(f"{A}╔════════════════════════════════════════════════════════════════════════════════════════╗")
